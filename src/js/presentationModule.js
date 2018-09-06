@@ -4,10 +4,7 @@ import layoutsData from "../data/layoutData/xxLayout.json";
 
     let enComponentPartCombination = {
         template: `
-        <transition-group tag="div"
-                          enter-active-class="animated tada"
-                          leave-active-class="animated tada"
-        >
+        <div>
             <div v-for="(value,key,index) in componentData"
                  :key="index"
                  class="fromsTab"
@@ -17,7 +14,7 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     <b-button size="sm" variant="outline-danger" class="collapseCditBtnStyle">✕</b-button>
                     <b-button size="sm" variant="outline-success" class="collapseCditBtnStyle">✚</b-button>
                 </b-btn>
-                <b-collapse :visible="index == 0"
+                <b-collapse :visible="index == 0 || lock"
                             :id="'collapse'+index"
                 >
                     <b-card>
@@ -43,14 +40,14 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     </b-card>
                 </b-collapse>
             </div>
-        </transition-group>
+        </div>
         `,
         data() {
             return  {
                 isEdit: false
             }
         },
-        props: ['componentData'],
+        props: ['componentData','lock'],
         methods: {
             /*embedForms(){
                 console.log(Object.keys(this.componentData).length);
@@ -91,7 +88,7 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                    v-if="entag"
                    :active="enActive"
             >
-                <en-component-part-combination :componentData="encomponents"></en-component-part-combination>
+                <en-component-part-combination :componentData="encomponents" :lock="lock"></en-component-part-combination>
             </b-tab>
             <b-tab title="T-Chinese"
                    v-if="tctag"
@@ -123,6 +120,10 @@ import layoutsData from "../data/layoutData/xxLayout.json";
             active: {
                 type: String,
                 required: true
+            },
+            lock: {
+                type: Boolean,
+                default: false
             },
             encomponents: {
                 type: Object
@@ -200,6 +201,8 @@ import layoutsData from "../data/layoutData/xxLayout.json";
 
                 this.editingComponentPath = nowEditComponentPath;
                 this.loadComponentData();
+                this.lockAndUnlockStatus();
+                this.$root.$emit("bv::hide::tooltip");
             },
             loadComponentData() {
 
@@ -228,18 +231,42 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     });
                 }
                 this.lockAndUnlockStatus();
+                this.$root.$emit("bv::hide::tooltip");
+            },
+            unLockComponent(){
+                if (this.layoutData[0].active === "commonSetting") {
+                    this.layoutData[1].commonSetting.some((e) => {
+                        if (e.active === true) {
+                            e.lockStatus = false;
+                            return true;
+                        }
+                    });
+                } else {
+                    this.layoutData[1].components.some((e) => {
+                        if (e.active === true) {
+                            e.lockStatus = false;
+                            return true;
+                        }
+                    });
+                }
+                this.lockAndUnlockStatus();
+                this.$root.$emit("bv::hide::tooltip");
             },
             lockAndUnlockStatus(){
                 if (this.layoutData[0].active === "commonSetting") {
                     this.layoutData[1].commonSetting.some((e) => {
                         if (e.active === true && e.lockStatus === true) {
                             this.lock = true;
+                        } else if (e.active === true) {
+                            this.lock = false;
                         }
                     });
                 }else{
                     this.layoutData[1].components.some((e) => {
                         if (e.active === true && e.lockStatus === true) {
                             this.lock = true;
+                        } else if (e.active === true){
+                            this.lock = false;
                         }
                     });
                 }
@@ -254,6 +281,7 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     component.active = true;
                     this.editingComponentPath = component.path;
                     this.loadComponentData();
+                    this.lockAndUnlockStatus();
                 }else{
                     this.layoutData[1].components.some((e)=>{
                         e.active = false;
@@ -261,6 +289,7 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     component.active = true;
                     this.editingComponentPath = component.path;
                     this.loadComponentData();
+                    this.lockAndUnlockStatus();
                 }
             }
         },

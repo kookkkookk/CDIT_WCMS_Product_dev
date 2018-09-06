@@ -85,11 +85,16 @@
 
                         <h3 class="functionTag">Data Fn</h3>
                         <ul>
-                            <li v-b-tooltip.hover.topright title="Lock data" :class="{disabled:lock}"
-                                @click="lockComponent()">
+                            <li v-b-tooltip.hover.topright title="Lock data"
+                                :class="{disabled:lock}"
+                                @click="lockComponent()"
+                            >
                                 <a href="javascript:;"><img src="src/images/icon-04.png" alt="Components" class="img-fluid"></a>
                             </li>
-                            <li v-b-tooltip.hover.topright title="Unlock data" :class="{disabled:!lock}">
+                            <li v-b-tooltip.hover.topright title="Unlock data"
+                                :class="{disabled:!lock}"
+                                @click="unLockComponent()"
+                            >
                                 <a href="javascript:;"><img src="src/images/icon-05.png" alt="Components" class="img-fluid"></a>
                             </li>
                         </ul>
@@ -128,6 +133,7 @@
                 <div class="col-9 mainComponentModuleRight">
                     <h1>{{componentData[0].file}}</h1>
                     <hr>
+                    <div v-show="lock" class="lockScreen"></div>
                     <b-input-group prepend="Search Content" class="ModuleRightBtnArea">
                         <b-form-input></b-form-input>
                         <b-input-group-append>
@@ -140,6 +146,7 @@
                                       :tctag="componentData[0].tchinese"
                                       :sctag="componentData[0].schinese"
                                       :active="componentData[0].active"
+                                      :lock="lock"
                                       :encomponents="componentData[1]"
                                       :tccomponents="componentData[2]"
                                       :sccomponents="componentData[3]"

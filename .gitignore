@@ -3,7 +3,6 @@ dist
 tmp
 ppt
 app
-other
 .vscode
 *.lnk
 *.test
