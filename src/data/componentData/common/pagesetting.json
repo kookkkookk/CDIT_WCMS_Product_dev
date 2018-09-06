@@ -1,0 +1,28 @@
+[
+    {
+        "name": "pagesetting",
+        "file": "pagesetting.json",
+        "english": true,
+        "tchinese": false,
+        "schinese": false,
+        "active": "english"
+    },
+    {
+        "level1-1": {
+            "item1": {
+                "type": "text",
+                "name": "Pagesetting Desktop",
+                "description": "Pagesetting Desktop description",
+                "subDesc": null
+            },
+            "item2": {
+                "type": "text",
+                "name": "Pagesetting Mobile",
+                "description": "Pagesetting Mobile description",
+                "subDesc": null
+            }
+        }
+    },
+    {},
+    {}
+]

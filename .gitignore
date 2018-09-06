@@ -1,0 +1,10 @@
+node_modules
+dist
+tmp
+ppt
+app
+other
+.vscode
+*.lnk
+*.test
+/.sass-cache

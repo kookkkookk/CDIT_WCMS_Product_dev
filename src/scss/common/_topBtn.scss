@@ -1,0 +1,18 @@
+.topBtn{
+    width: 80px;
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    right: 60px;
+    z-index: 10;
+    background-color: #ef3b24;
+    &::before{
+        content: "↑";
+        color: white;
+        font-size: 35px;
+        text-align: center;
+        line-height: 80px;
+        display: block;
+        cursor: pointer;
+    }
+}

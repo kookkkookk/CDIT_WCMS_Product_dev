@@ -1,0 +1,63 @@
+//共用
+@mixin animationShareOriginal{
+	@include opacity(1);
+	transform: translate(0,0);
+}
+// 返回的原始點
+.movingOpacity.on, .movingLevel.on, .movingVertical.on, .movingLevelLeft.on{
+	@include animationShareOriginal;
+}
+// 淡出
+.movingOpacity{
+	@include transition(all 0.5s ease-in-out 0.5s);
+	@include opacity(0);
+}
+// 水平右至左
+.movingLevel{
+	@include transition(all 0.5s ease-in-out 0.5s);
+	@include opacity(0);
+	transform: translateX(20px);
+}
+// 水平左至右
+.movingLevelLeft{
+	@include transition(all 0.5s ease-in-out 0.5s);
+	@include opacity(0);
+	transform: translateX(-20px);
+}
+// 垂直上至下
+.movingVertical{
+	@include transition(all 0.5s ease-in-out 0.5s);
+	@include opacity(0);
+	transform: translateY(20px);
+}
+// 垂直上至下 但準備delay用
+.take2Continuous1, .take2Continuous2, .take2Continuous3, .take2Continuous4, .take2Continuous5, .take2Continuous6{
+	@include transition(all 0.5s ease-in-out 0.5s);
+	@include opacity(0);
+	transform: translateY(-20px);
+}
+// 返回的原始點 但有delay
+@for $i from 1 through 6 {
+	.take2Continuous#{$i}.on{
+		@include transition-delay($i*0.3s);
+		@include animationShareOriginal;
+	}
+}
+
+// 單元06 take2用，斜上斜下進場&有delay
+.take2SortedMove1, .take2SortedMove3, .take2SortedMove5, .take2SortedMove7{
+	@include transition(all 0.5s ease-in-out 0.5s);
+	@include opacity(0);
+	transform: translate(-20px, 20px);
+}
+.take2SortedMove2, .take2SortedMove4, .take2SortedMove6{
+	@include transition(all 0.5s ease-in-out 0.5s);
+	@include opacity(0);
+	transform: translate(-20px, -20px);
+}
+@for $i from 1 through 7 {
+	.take2SortedMove#{$i}.on{
+		@include transition-delay($i*0.3s);
+		@include animationShareOriginal;
+	}
+}

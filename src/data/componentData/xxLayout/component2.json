@@ -1,0 +1,58 @@
+[
+    {
+        "name": "component2",
+        "file": "component2.json",
+        "english": true,
+        "tchinese": true,
+        "schinese": false,
+        "active": "tchinese"
+    },
+    {
+        "level1-1": {
+            "item1": {
+                "type": "text",
+                "name": "Title",
+                "description": "789789789",
+                "subDesc": "Max 10.",
+                "isRequired": true
+            },
+            "item2": {
+                "type": "text",
+                "name": "Descripttion",
+                "description": "abcabcabc",
+                "subDesc": "Max 50.",
+                "isRequired": false
+            },
+            "level1-2": {
+                "item1": {
+                    "type": "text",
+                    "name": "Sub Title",
+                    "description": "lv2-78978978979",
+                    "subDesc": "Max 10.",
+                    "isRequired": true
+                }
+            }
+        },
+        "level2-1": {
+            "item1": {
+                "type": "text",
+                "name": "url",
+                "description": "www.google.com",
+                "subDesc": null,
+                "isRequired": false
+            }
+        }
+    },
+    {
+        "level1-1": {
+            "item1": {
+                "type": "text",
+                "name": "url",
+                "description": "www.google.com",
+                "subDesc": null,
+                "isRequired": false
+            }
+        }
+    },
+    {}
+]

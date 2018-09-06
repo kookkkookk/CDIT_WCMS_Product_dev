@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>CDIT WCMS Product : components development v1</title>
+
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/bundle.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+</head>
+
+<body>
+
+    <header class="mainHeader">
+        <div class="identification">
+            <div class="logo"></div>
+            <h1>CHINA DRAGON<small><br>IT LIMITED</small></h1>
+        </div>
+        <div class="menuArea">
+            <ul>
+                <li><a href="javascript:;">Content</a><span></span></li>
+                <li><a href="javascript:;">Site Map</a><span></span></li>
+            </ul>
+        </div>
+        <div class="usersArea">
+            <ul>
+                <li>
+                    <a href="javascipt:;">
+                        <img src="src/images/icon-00.png" alt="" class="img-fluid">
+                    </a>
+                    <span>tsadmin</span>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="app" v-cloak>
+
+        <div class="container-fluid v-mainContent">
+             <!-- container-fluid 絕對100% w -->
+            <div class="row no-gutters mainComponentModuleGroup">
+                 <!-- row 行 no-gutters 不要左右padding -->
+                <div class="col-3 mainComponentModuleLeft">
+                    <div class="fnsArea">
+
+                        <h3 class="functionTag first">Layout Fn</h3>
+                        <ul>
+                            <li v-b-tooltip.hover.topright title="Preview">
+                                <a href="javascript:;"><img src="src/images/icon-06.png" alt="Preview" class="img-fluid"></a>
+                            </li>
+                            <li v-b-tooltip.hover.topright title="Generate">
+                                <a href="javascript:;"><img src="src/images/icon-03.png" alt="Components" class="img-fluid"></a>
+                            </li>
+                        </ul>
+
+                        <h3 class="functionTag">Component</h3>
+                        
+                        <ul v-if="layoutData[0].active === 'commonSetting'">
+                            <li v-b-tooltip.hover.topright title="Setting" class="active">
+                                <a href="javascript:;" @click="componentModeChange('commonSetting')"><img src="src/images/icon-02.png" alt="Setting" class="img-fluid"></a>
+                            </li>
+                            <li v-b-tooltip.hover.topright title="Components">
+                                <a href="javascript:;" @click="componentModeChange('components')"><img src="src/images/icon-07.png" alt="Components" class="img-fluid"></a>
+                            </li>
+                        </ul>
+                        <ul v-else-if="layoutData[0].active === 'components'">
+                            <li v-b-tooltip.hover.topright title="Setting">
+                                <a href="javascript:;" @click="componentModeChange('commonSetting')"><img src="src/images/icon-02.png" alt="Setting" class="img-fluid"></a>
+                            </li>
+                            <li v-b-tooltip.hover.topright title="Components" class="active">
+                                <a href="javascript:;" @click="componentModeChange('components')"><img src="src/images/icon-07.png" alt="Components" class="img-fluid"></a>
+                            </li>
+                        </ul>
+                        
+
+                        <h3 class="functionTag">Data Fn</h3>
+                        <ul>
+                            <li v-b-tooltip.hover.topright title="Lock data" :class="{disabled:lock}"
+                                @click="lockComponent()">
+                                <a href="javascript:;"><img src="src/images/icon-04.png" alt="Components" class="img-fluid"></a>
+                            </li>
+                            <li v-b-tooltip.hover.topright title="Unlock data" :class="{disabled:!lock}">
+                                <a href="javascript:;"><img src="src/images/icon-05.png" alt="Components" class="img-fluid"></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="componentsArea">
+                        <h4>{{layoutData[0].layoutName}}</h4>
+                        <hr>
+                        <ul v-if="layoutData[0].active === 'commonSetting'">
+                            <!-- <li><a href="javascript:;">conponent1</a></li>
+                            <li class="active"><a href="javascript:;">conponent2</a></li>
+                            <li><a href="javascript:;">conponent3</a></li>
+                            <li class="lock"><a href="javascript:;">conponent4</a></li> -->
+                            <li v-for="(item,index) in layoutData[1].commonSetting"
+                                :key="index"
+                                :class={active:item.active,lock:item.lockStatus}>
+                                <a href="javascript:;"
+                                   @click="selectComponent(item,'commonSetting')">
+                                    {{item.name}}
+                                </a>
+                            </li>
+                        </ul>
+                        <ul v-else-if="layoutData[0].active === 'components'">
+                            <li v-for="(item,index) in layoutData[1].components"
+                                :key="index"
+                                :class={active:item.active,lock:item.lockStatus}>
+                                <a href="javascript:;"
+                                   @click="selectComponent(item,'components')">
+                                    {{item.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+
+                <div class="col-9 mainComponentModuleRight">
+                    <h1>{{componentData[0].file}}</h1>
+                    <hr>
+                    <b-input-group prepend="Search Content" class="ModuleRightBtnArea">
+                        <b-form-input></b-form-input>
+                        <b-input-group-append>
+                            <b-btn variant="info" class="saveBtn"><img src="src/images/icon-01.png" alt="search content" title="search content"></b-btn>
+                        </b-input-group-append>
+                        <b-button variant="success" class="saveBtn">Save<img src="src/images/icon-08.png" alt="Save" title="Save"></b-button>
+                        <b-button variant="success" class="saveBtn">Save As<img src="src/images/icon-09.png" alt="Save As" title="Save As"></b-button>
+                    </b-input-group>
+                    <component-module :entag="componentData[0].english"
+                                      :tctag="componentData[0].tchinese"
+                                      :sctag="componentData[0].schinese"
+                                      :active="componentData[0].active"
+                                      :encomponents="componentData[1]"
+                                      :tccomponents="componentData[2]"
+                                      :sccomponents="componentData[3]"
+                    >
+                    </component-module>
+                </div> 
+                
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="topBtn"></div>
+    <footer class="mainFooter"></footer>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

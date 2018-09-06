@@ -1,0 +1,61 @@
+[   
+    {
+        "layoutName": "ebuMain_newsLetter",
+        "active": "components"
+    },
+    {
+        "commonSetting": [
+            {
+                "name": "pagesetting",
+                "path": "../src/data/componentData/common/pagesetting.json",
+                "lockStatus": false,
+                "moveStatus": true,
+                "active": true
+            },
+            {
+                "name": "webtrend",
+                "path": "../src/data/componentData/common/webtrend.json",
+                "lockStatus": false,
+                "moveStatus": true,
+                "active": false
+            }
+        ],
+        "components": [
+            {
+                "name": "component1",
+                "path": "../src/data/componentData/xxLayout/component1.json",
+                "lockStatus": false,
+                "moveStatus": false,
+                "active": true
+            },
+            {
+                "name": "component2",
+                "path": "../src/data/componentData/xxLayout/component2.json",
+                "lockStatus": false,
+                "moveStatus": false,
+                "active": false
+            },
+            {
+                "name": "component3",
+                "path": "../src/data/componentData/xxLayout/component3.json",
+                "lockStatus": true,
+                "moveStatus": true,
+                "active": false
+            },
+            {
+                "name": "component4",
+                "path": "../src/data/componentData/xxLayout/component4.json",
+                "lockStatus": false,
+                "moveStatus": false,
+                "active": false
+            },
+            {
+                "name": "component5",
+                "path": "../src/data/componentData/xxLayout/component5.json",
+                "lockStatus": true,
+                "moveStatus": false,
+                "active": false
+            }
+        ]
+    }
+]

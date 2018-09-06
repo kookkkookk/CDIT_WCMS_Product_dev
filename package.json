@@ -1,0 +1,36 @@
+{
+  "name": "cdit_product_development",
+  "version": "1.0.0",
+  "description": "CHINA DRAGON IT LIMITED Product development.",
+  "main": "webpack.config.js",
+  "scripts": {
+    "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
+    "start": "cross-env NODE_ENV=development webpack --mode development",
+    "deploy": "cross-env NODE_ENV=production webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --mode development --open"
+  },
+  "author": "Ben Wu <ben.wu@chinadragonhk.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.1.4",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "node-sass": "^4.9.3",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "url-loader": "^1.1.1",
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "image-webpack-loader": "^4.3.1"
+  }
+}
