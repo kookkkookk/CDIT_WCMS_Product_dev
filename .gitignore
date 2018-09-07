@@ -1,8 +1,9 @@
 node_modules
 dist
 tmp
-ppt
 app
+other/*.png
+other/*.jpg
 .vscode
 *.lnk
 *.test
