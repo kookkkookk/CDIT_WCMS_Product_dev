@@ -1,15 +1,16 @@
 var path = require("path");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var extractCSS = new ExtractTextPlugin("css/[name].css");
+//var extractCSS = new ExtractTextPlugin("css/[name].css");
 // var extractSASS = new ExtractTextPlugin('scss/[name].css');
 var extractSASS = new ExtractTextPlugin({
-  filename: "./css/bundle.css"
+  filename: "css/[name].css"
 });
 
 module.exports = {
   context: path.resolve(__dirname, "src"),
   entry: {
-    index: "./js/index.js"
+    index: "./js/index.js",
+    workflowModule: "./js/workflowModule.js"
   },
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -57,10 +58,10 @@ module.exports = {
           }
         ]
       },
-      {
+      /*{
         test: /\.css$/,
         use: extractCSS.extract(["css-loader"])
-      },
+      },*/
       {
         test: /\.(sass|scss)$/,
         use: extractSASS.extract({
@@ -104,5 +105,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [extractCSS, extractSASS]
+  plugins: [/*extractCSS, */extractSASS]
 };

@@ -1,0 +1,21 @@
+//------- 固定import -------
+//通用變數與mixin函式
+@import "helpers/_mixin.scss";
+//reset
+// @import "base/_reset.scss";
+//通用extend
+@import "helpers/_extend.scss";
+//layout, compass
+// @import "base/_layout.scss";
+@import "base/_layoutForBootstarp.scss";
+
+//------- Scroll animation -------
+//@import "base/_scrollAnimation.scss";
+
+//------- Common -------
+@import "common/_header.scss";
+@import "common/_topBtn.scss";
+@import "common/_footer.scss";
+
+//------- 內容Style -------
+@import "page/_workflowModule.scss";
