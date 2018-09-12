@@ -81,16 +81,56 @@ header.mainHeader{
         }
     }
     .usersArea{
-        height: 80px;
-        float: left;
+        height: 90px;
+        float: right;
         ul{
+            margin-top: 22px;
+            margin-right: 20px;
             li{
+                cursor: pointer;
+                padding: 0 30px 0 5px;
+                border-radius: 25px;
+                transition: all 0.3s;
+                overflow: hidden;
+                position: relative;
                 a{
                     display: block;
                     padding: 10px;
                     width: 50px;
                     height: 50px;
                     float: left;
+                }
+                span.userID{
+                    line-height: 50px;
+                    float: left;
+                }
+                &:hover{
+                    background-color: #b6b7b8;
+                }
+                span.arrow{
+                    width: 12px;
+                    height: 12px;
+                    background-color: #ef3b24;
+                    display: block;
+                    position: absolute;
+                    right: 10px;
+                    top: 19px;
+                    transform: rotate(45deg);
+                    opacity: 0;
+                    transition: all 0.3s;
+                    &::before{
+                        content: "";
+                        width: 20px;
+                        height: 20px;
+                        background-color: #b6b7b8;
+                        display: block;
+                        margin-top: -10px;
+                        margin-left: -10px;
+                        transform: rotate(-45deg);
+                    }
+                }
+                &:hover .arrow{
+                    opacity: 1;
                 }
             }
         }

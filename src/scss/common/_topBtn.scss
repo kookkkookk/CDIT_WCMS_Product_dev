@@ -4,8 +4,10 @@
     position: fixed;
     bottom: 0;
     right: 60px;
-    z-index: 10;
+    z-index: 4;
     background-color: #ef3b24;
+    border: 1px solid #fff;
+    border-bottom: transparent;
     &::before{
         content: "↑";
         color: white;
