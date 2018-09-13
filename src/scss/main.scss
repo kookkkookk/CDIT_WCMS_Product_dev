@@ -4,7 +4,7 @@
 //reset
 // @import "base/_reset.scss";
 //通用extend
-@import "helpers/_extend.scss";
+//@import "helpers/_extend.scss";
 //layout, compass
 // @import "base/_layout.scss";
 @import "base/_layoutForBootstarp.scss";
@@ -16,6 +16,7 @@
 @import "common/_header.scss";
 @import "common/_topBtn.scss";
 @import "common/_footer.scss";
+@import "common/_templateCommonStyle.scss";
 
 //------- 內容Style -------
 @import "page/_main.scss";

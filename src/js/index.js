@@ -1,7 +1,6 @@
 import "index.html";
 // import "index.css";
 import "main.scss";
-import "workflowModule.scss";
 import "presentationModule.js";
 
 let init_img_loader = "init_img_loader.jpg";

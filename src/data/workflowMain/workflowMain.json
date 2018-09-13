@@ -1,0 +1,12 @@
+[  
+    {
+        "name": "WORKFLOW 1",
+        "path": "../src/data/workflowData/workflow1.json",
+        "active": false
+    },
+    {
+        "name": "WORKFLOW 2",
+        "path": "../src/data/workflowData/custom_workflow2.json",
+        "active": true
+    }
+]

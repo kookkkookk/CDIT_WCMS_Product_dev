@@ -1,32 +1,9 @@
-.container-fluid.v-mainContent{
-    padding-left: 0;
-    padding-right: 0;
-}
-.br{
-    width: 100%;
-    height: 15px;
-}
-.lockScreen{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba($color: #000000, $alpha: 0.3);
-    background-image: url("../images/icon-04-2.png");
-    background-size: 15%;
-    background-repeat: no-repeat;
-    background-position: 50% 20%;
-    z-index: 3;
-}
-
-//content start
 .v-mainContent{
-    min-width: 1280px;
-    height: 100%;
+    @extend %v-mainContent;
     .mainComponentModuleGroup{
-        min-height: 900px;
-       
+        @extend %mainComponentModuleGroup;
+
+        //Left select area
         .mainComponentModuleLeft{
             border-top: 8px solid #ef3b24;
             background-color: #f2f7fa;
@@ -154,7 +131,7 @@
             }
         }
 
-        //forms
+        //Right forms area
         .mainComponentModuleRight{
             padding: 0 15px;
             >h1{

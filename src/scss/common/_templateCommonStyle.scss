@@ -1,0 +1,37 @@
+.container-fluid.v-mainContent{
+    padding-left: 0;
+    padding-right: 0;
+}
+.br{
+    width: 100%;
+    height: 15px;
+}
+.br2{
+    width: 100%;
+    height: 40px;
+}
+.br3{
+    width: 100%;
+    height: 90px;
+}
+.lockScreen{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    background-image: url("../images/icon-04-2.png");
+    background-size: 15%;
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    z-index: 3;
+}
+
+%v-mainContent{
+    min-width: 1280px;
+    height: 100%;
+}
+%mainComponentModuleGroup{
+    min-height: 900px;
+}

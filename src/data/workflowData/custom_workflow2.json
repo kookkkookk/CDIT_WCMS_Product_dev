@@ -1,0 +1,32 @@
+[
+    {
+        "stepName": "Start",
+        "priority": "Initial",
+        "backgroundColor": "pink",
+        "fontColor": "white"
+    },
+    {
+        "stepName": "Generate HTML",
+        "priority": "Highest",
+        "backgroundColor": "blue",
+        "fontColor": "white"
+    },
+    {
+        "stepName": "Lock Files",
+        "priority": "Medium",
+        "backgroundColor": "pink",
+        "fontColor": "white"
+    },
+    {
+        "stepName": "Approver",
+        "priority": "Highest",
+        "backgroundColor": "pink",
+        "fontColor": "white"
+    },
+    {
+        "stepName": "Send e-mail",
+        "priority": "Low",
+        "backgroundColor": "pink",
+        "fontColor": "white"
+    }
+]

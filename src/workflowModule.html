@@ -46,13 +46,80 @@
     </header>
 
     <div id="app" v-cloak>
+        <div class="container-fluid v-mainContent">
+            <div class="row no-gutters mainComponentModuleGroup">
+                <div class="col-2 mainComponentModuleLeft">
+                    <div class="fnsArea"></div>
+                    <div class="componentsArea">
+                        <h4>{{thisWorkflowName}}</h4>
+                        <hr>
+                        <ul>
+                            <!-- <li><a href="javascript:;">WORKFLOW 1</a></li>
+                            <li class="active"><a href="javascript:;">WORKFLOW 2</a></li> -->
+                            <li v-for="(item,index) in workflowMain"
+                                :key="index"
+                                :class="{active:item.active}"
+                            >
+                                <a href="javascript:;">{{item.name}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-10 mainComponentModuleRight">
+                    <h1>custom_workflow2.js</h1>
+                    <hr>
+                    <div class="ModuleRightBtnArea">
+                        <b-button variant="success" class="saveBtn">Save<img src="src/images/icon-08.png" alt="Save" title="Save"></b-button>
+                        <b-button variant="success" class="saveBtn">Cancel<img src="src/images/icon-09.png" alt="Save As" title="Save As"></b-button>
+                    </div>
+                    <div class="br3"></div>
+                    <div class="row no-gutters justify-content-md-center workflowStepArea">
+                        <div v-for="(item,index) in workflowData" class="col-3"
+                             :key="index"
+                        >
+                        </div>
+                        <div class="w-100" v-for="item2 in workflowData"></div>
+                        <!-- <div class="col-3">
+                            <div class="workflowBlock cube">
+                                <div class="description">Start</div>
+                                <span class="arrow1"></span>
+                                <span class="arrow2"></span>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        
+                        
+                        <div class="col-3">
+                            <div class="workflowBlock round">
+                                <div class="description">Start</div>
+                                <span class="arrow1"></span>
+                                <span class="arrow2"></span>
+                            </div>
+                        </div>
+                        <div class="w-100"></div>
+                        
+                        <div class="col-3">
+                            <div class="workflowBlock diamond">
+                                <div class="description">Start</div>
+                                <span class="arrow1"></span>
+                                <span class="arrow2"></span>
+                            </div>
+                        </div> -->
 
+                    </div>
+
+                   
+                    
+                    <div class="br"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="topBtn"></div>
     <footer class="mainFooter">
         <div class="copyright">Copyright © 2018 China Dragon HK Tavern. Powered by Ben Wu.</div>
-        <div class="version">version 1.0.0</div>
+        <div class="version">Workflow Module. version 1.0.0</div>
     </footer>
 
     <script src="./js/workflowModule.js"></script>

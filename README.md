@@ -1,8 +1,8 @@
-# CDIT WCMS Product development
+# **CDIT WCMS Product development**
 ## Components Modules development v1.0
-#### A high efficiency switch between templates storage, locking, function,User interface for large projects.
+### A high efficiency switch between templates storage, locking, function,User interface for large projects.
 
-### Plugins
+### ***Plugins***
 - #### Style
   - Scss
   - Bootstrap-vue
@@ -15,17 +15,17 @@
 - #### Other
   - Illustrator (Icon design)
 
-### Date type ues to json
-### Support browser
+### ***Date type ues to json***
+### ***Support browser***
 >[Reference all ECMAScript 5 browser](https://caniuse.com/#feat=es5)
 
-### Style planning and design
+### ***Style planning and design***
 >Reference style
 - [Color](https://klart.io/colors/5b210e450fd65114c16bc523)
 - [UI Style](https://wptavern.com/easy-pricing-table-plugin-creates-beautiful-responsive-pricing-tables-for-wordpress)
 
 
-### Project implementation functions
+### ***Project implementation functions***
 - Components and Settings separation
 - Components and Settings switch
 - Components/Settings fast jump
@@ -38,16 +38,65 @@
 - Control forms detail
 - Alert warning
 
-### Test project
+### ***Test project***
 ※chech Dillinger requires Node.js v4+ to run.
 ```sh
 $ cd CDIT_WCMS_Product_dev
 $ npm install -d
 $ npm run dev
+$ Auto open browser url: http://localhost:3000
 ```
 
-### Online preview (comming soon)
+### ***Online preview*** (comming soon)
 [https://kookkkookk.github.io/CDIT_WCMS_Product_dev/dist/](https://kookkkookk.github.io/CDIT_WCMS_Product_dev/dist/)
+
+---
+
+## Workflow Modules development v1.0
+### Intuitive, easy to quickly calibrate levels and priority templates. Each step has its own parameters and settings.
+
+### ***Plugins***
+- #### Style
+  - Scss
+  - Bootstrap-vue
+- #### Framework
+  - Vuejs
+- #### Pack & Version control
+  - webpack
+  - bable
+  - Git
+
+### ***Date type ues to json***
+### ***Support browser***
+>[Reference all ECMAScript 5 browser](https://caniuse.com/#feat=es5)
+
+### ***Style planning and design***
+>Reference style
+- [Color](https://klart.io/colors/5b210e450fd65114c16bc523)
+- [UI Style](https://wptavern.com/easy-pricing-table-plugin-creates-beautiful-responsive-pricing-tables-for-wordpress)
+
+### ***Project implementation functions***
+- Workflow switch
+- Show Save workflow setting Button, Cancel Save setting Button. (Do not implement the function in the frontEnd)
+- Add step item
+- Delete step item
+- Step item exchange move
+- Every step item has a detailed setting
+- Last step item change arrow direction
+
+
+### ***Test project***
+※chech Dillinger requires Node.js v4+ to run.
+```sh
+$ cd CDIT_WCMS_Product_dev
+$ npm install -d
+$ npm run dev
+$ Browser input url: http://localhost:3000/workflowModule.html
+```
+
+### ***Online preview*** (comming soon)
+[https://kookkkookk.github.io/CDIT_WCMS_Product_dev/dist/workflowModule.html](https://kookkkookk.github.io/CDIT_WCMS_Product_dev/dist/workflowModule.html)
+
 
 Author by Ben.Wu
 
