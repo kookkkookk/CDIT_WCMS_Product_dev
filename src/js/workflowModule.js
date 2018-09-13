@@ -17,7 +17,8 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                     "backgroundColor": "pink",
                     "fontColor": "white"
                 }
-            ]
+            ],
+            "isEditStep": false
 
         },
         methods: {
@@ -29,6 +30,9 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                 }, (response) => {
                     console.log("component ajax error");
                 });
+            },
+            openStepValue(){
+                this.isEditStep = !this.isEditStep;
             }
         },
         created() {

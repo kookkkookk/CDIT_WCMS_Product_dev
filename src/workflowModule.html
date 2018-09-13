@@ -73,42 +73,37 @@
                         <b-button variant="success" class="saveBtn">Cancel<img src="src/images/icon-09.png" alt="Save As" title="Save As"></b-button>
                     </div>
                     <div class="br3"></div>
-                    <div class="row no-gutters justify-content-md-center workflowStepArea">
-                        <div v-for="(item,index) in workflowData" class="col-3"
-                             :key="index"
+                    <div class="stepGroupMain">
+                        <div class="stepGroup" :class="{isOpeingFile:isEditStep}">
+
+                            <div class="row no-gutters justify-content-md-center workflowStepArea"
+                                v-for="(item, index) in workflowData"
+                                :key="index"
+                            >
+                                <div class="col-3"
+                                    :class="{'col-6':isEditStep}"
+                                >
+                                    <div class="workflowBlock"
+                                        :class="[item.priority]"
+                                    >
+                                        <div class="description"
+                                            :style="{'background-color':[item.backgroundColor],'color':[item.fontColor]}"
+                                            @click="openStepValue()"
+                                        >
+                                            {{item.stepName}}
+                                        </div>
+                                        <span v-if="(index+1) !== workflowData.length" class="arrow1"></span>
+                                        <span v-if="(index+1) !== workflowData.length" class="arrow2"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="mainComponentModuleRightSetting"
+                            :class="{isOpeingFile:isEditStep}"
                         >
                         </div>
-                        <div class="w-100" v-for="item2 in workflowData"></div>
-                        <!-- <div class="col-3">
-                            <div class="workflowBlock cube">
-                                <div class="description">Start</div>
-                                <span class="arrow1"></span>
-                                <span class="arrow2"></span>
-                            </div>
-                        </div>
-                        <div class="w-100"></div>
-                        
-                        
-                        <div class="col-3">
-                            <div class="workflowBlock round">
-                                <div class="description">Start</div>
-                                <span class="arrow1"></span>
-                                <span class="arrow2"></span>
-                            </div>
-                        </div>
-                        <div class="w-100"></div>
-                        
-                        <div class="col-3">
-                            <div class="workflowBlock diamond">
-                                <div class="description">Start</div>
-                                <span class="arrow1"></span>
-                                <span class="arrow2"></span>
-                            </div>
-                        </div> -->
-
                     </div>
-
-                   
                     
                     <div class="br"></div>
                 </div>
