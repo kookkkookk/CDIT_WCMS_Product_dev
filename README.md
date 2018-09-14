@@ -33,16 +33,15 @@
 
 
 ### ***Project implementation functions***
-- Components and Settings separation
-- Components and Settings switch
-- Components/Settings fast jump
-- Components/Settings lock
-- Components/Settings unlock
-- Show Generate, Preview, Save deta, Save as data Button. (Do not implement the function in the frontEnd)
+- Components and Settings separation <font color=green size=3>*(o)*</font>
+- Components and Settings switch <font color=green size=3>*(o)*</font>
+- Components/Settings fast jump <font color=green size=3>*(o)*</font>
+- Components/Settings lock and unLock <font color=green size=3>*(o)*</font>
+- Show Generate, Preview, Save deta, Save as data Button. (Do not implement the function in the frontEnd) <font color=green size=3>*(o)*</font>
 - Search data content
-- Telescopic tables
-- Automatically generate a form for the corresponding data sheet
-- Control forms detail
+- Telescopic tables <font color=green size=3>*(o)*</font>
+- Automatically generate a form for the corresponding data sheet <font color=green size=3>*(o)*</font>
+- Control forms detail <font color=green size=3>*(o)*</font>
 - Alert warning
 
 ### ***Test project***
@@ -83,7 +82,7 @@ $ Auto open browser url: http://localhost:3000
 - [UI Style](https://wptavern.com/easy-pricing-table-plugin-creates-beautiful-responsive-pricing-tables-for-wordpress)
 
 ### ***Project implementation functions***
-- Workflow switch
+- Workflow switch <font color=green size=3>*(o)*</font>
 - Show Save workflow setting Button, Cancel Save setting Button. (Do not implement the function in the frontEnd)
 - Add step item
 - Delete step item

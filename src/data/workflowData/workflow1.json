@@ -1,0 +1,20 @@
+[
+    {
+        "stepName": "Start",
+        "priority": "round",
+        "backgroundColor": "pink",
+        "fontColor": "#000"
+    },
+    {
+        "stepName": "Approver",
+        "priority": "diamond",
+        "backgroundColor": "red",
+        "fontColor": "white"
+    },
+    {
+        "stepName": "Send e-mail",
+        "priority": "round",
+        "backgroundColor": "pink",
+        "fontColor": "white"
+    }
+]

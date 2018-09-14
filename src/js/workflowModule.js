@@ -31,6 +31,15 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                     console.log("component ajax error");
                 });
             },
+            selectWorkflow(workflow){
+                //console.log("select workflow click:",workflow);
+                this.editingWorkflowPath = workflow.path;
+                this.workflowMain.some((e)=>{
+                    e.active = false;
+                })
+                workflow.active = true;
+                this.loadworkflowData();
+            },
             openStepValue(){
                 this.isEditStep = !this.isEditStep;
             }

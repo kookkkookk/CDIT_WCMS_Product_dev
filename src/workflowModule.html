@@ -60,13 +60,17 @@
                                 :key="index"
                                 :class="{active:item.active}"
                             >
-                                <a href="javascript:;">{{item.name}}</a>
+                                <a href="javascript:;"
+                                   @click="selectWorkflow(item)"
+                                >
+                                   {{item.name}}
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-10 mainComponentModuleRight">
-                    <h1>custom_workflow2.js</h1>
+                    <h1>{{editingWorkflowPath.split("workflowData/")[1]}}</h1>
                     <hr>
                     <div class="ModuleRightBtnArea">
                         <b-button variant="success" class="saveBtn">Save<img src="src/images/icon-08.png" alt="Save" title="Save"></b-button>
@@ -74,8 +78,9 @@
                     </div>
                     <div class="br3"></div>
                     <div class="stepGroupMain">
+                        
                         <div class="stepGroup" :class="{isOpeingFile:isEditStep}">
-
+                            
                             <div class="row no-gutters justify-content-md-center workflowStepArea"
                                 v-for="(item, index) in workflowData"
                                 :key="index"
