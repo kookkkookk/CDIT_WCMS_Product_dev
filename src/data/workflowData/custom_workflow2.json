@@ -2,31 +2,51 @@
     {
         "stepName": "Start",
         "priority": "round",
-        "backgroundColor": "pink",
-        "fontColor": "#000"
+        "backgroundColor": "#00b84f",
+        "fontColor": "#132f3e",
+        "description": "Descript1",
+        "input1": "input1",
+        "input2": "input2",
+        "input3": "input3"
     },
     {
         "stepName": "Generate HTML",
         "priority": "cube",
-        "backgroundColor": "blue",
-        "fontColor": "white"
+        "backgroundColor": "#7d5ccb",
+        "fontColor": "#132f3e",
+        "description": "Descript1",
+        "input1": "input1",
+        "input2": "input2",
+        "input3": "input3"
     },
     {
         "stepName": "Lock Files",
         "priority": "cube",
-        "backgroundColor": "pink",
-        "fontColor": "green"
+        "backgroundColor": "#098cf2",
+        "fontColor": "#132f3e",
+        "description": "Descript1",
+        "input1": "input1",
+        "input2": "input2",
+        "input3": "input3"
     },
     {
         "stepName": "Approver",
         "priority": "diamond",
-        "backgroundColor": "red",
-        "fontColor": "white"
+        "backgroundColor": "#ef3b24",
+        "fontColor": "#132f3e",
+        "description": "Descript1",
+        "input1": "input1",
+        "input2": "input2",
+        "input3": "input3"
     },
     {
         "stepName": "Send e-mail",
         "priority": "round",
-        "backgroundColor": "pink",
-        "fontColor": "white"
+        "backgroundColor": "#00b84f",
+        "fontColor": "#132f3e",
+        "Descript": "Descript1",
+        "input1": "input1",
+        "input2": "input2",
+        "input3": "input3"
     }
 ]

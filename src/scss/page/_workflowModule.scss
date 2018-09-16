@@ -183,7 +183,7 @@
                             }
                         }
                         .cube .description{
-                            border-radius: 5px;
+                            // border-radius: 5px;
                         }
                         .round .description{
                             border-radius: 190px/50px;
@@ -201,9 +201,9 @@
 
             .mainComponentModuleRightSetting{
                 width: 50%;
-                height: 300px;
-                background-color: pink;
-                border-radius: 10px;
+                min-height: 300px;
+                background-color: #f2f7fa;
+                border-left: 6px solid #ef3b24;
                 float: left;
                 transition: all 1s;
                 transform: translateX(100%);
@@ -211,6 +211,16 @@
                 position: absolute;
                 right: 0;
                 top: 0;
+                >h1{
+                    color: #132f3e;
+                    margin-top: 25px;
+                    margin-left: 25px;
+                    margin-bottom: 25px;
+                }
+                .content{
+                    width: 90%;
+                    margin: 0 auto;
+                }
             }
             .mainComponentModuleRightSetting.isOpeingFile{
                 transform: translateX(0%);

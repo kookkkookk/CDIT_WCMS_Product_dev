@@ -93,7 +93,7 @@
                                     >
                                         <div class="description"
                                             :style="{'background-color':[item.backgroundColor],'color':[item.fontColor]}"
-                                            @click="openStepValue()"
+                                            @click="openStepValue(index)"
                                         >
                                             {{item.stepName}}
                                         </div>
@@ -107,6 +107,43 @@
                         <div class="mainComponentModuleRightSetting"
                             :class="{isOpeingFile:isEditStep}"
                         >
+                            <h1>Workflow Step Setting</h1>
+                            <div class="content">
+                                <b-row class="my-1">
+                                    <b-col sm="2"><label for="input-default">Name:</label></b-col>
+                                    <b-col sm="10">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step name" v-model="workflowData[isEditStepNowIndex].stepName"></b-form-input>
+                                    </b-col>
+
+                                    <div class="br"></div>
+
+                                    <b-col sm="2"><label for="input-default">Priority authority:</label></b-col>
+                                    <b-col sm="10">
+                                        <b-form-select v-model="workflowData[isEditStepNowIndex].priority" :options="defaulePrioritySelect" class="mb-3" />
+                                    </b-col>
+
+                                    <div class="br"></div>
+
+                                    <b-col sm="2"><label for="input-default">Description:</label></b-col>
+                                    <b-col sm="10">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step description" v-model="workflowData[isEditStepNowIndex].description"></b-form-input>
+                                    </b-col>
+
+                                    <div class="br"></div>
+                                    
+                                    <b-col sm="2"><label for="input-default">input1:</label></b-col>
+                                    <b-col sm="10">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step input1" v-model="workflowData[isEditStepNowIndex].input1"></b-form-input>
+                                    </b-col>
+                                    <div class="br"></div>
+                                    <div>
+                                        <b-button>Save</b-button>
+                                        <b-button href="#">Cancel</b-button>
+                                    </div>
+                                    <div class="br"></div>
+                                </b-row>
+                            </div>
+                            
                         </div>
                     </div>
                     

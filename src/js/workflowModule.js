@@ -12,13 +12,21 @@ import workflowData from "../data/workflowMain/workflowMain.json";
             editingWorkflowPath: "",
             workflowData: [
                 {
-                    "stepName": null,
+                    "stepName": "null",
                     "priority": null,
                     "backgroundColor": "pink",
                     "fontColor": "white"
                 }
             ],
-            "isEditStep": false
+            "defaulePrioritySelect": [
+                { value: null, text: 'Please select an option' },
+                { value: 'init', text: 'Initial' },
+                { value: 'round', text: 'Ordinary' },
+                { value: 'cube', text: 'Priority' },
+                { value: 'diamond', text: 'Urgent' }
+            ],
+            "isEditStep": false,
+            isEditStepNowIndex: 0
 
         },
         methods: {
@@ -40,8 +48,9 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                 workflow.active = true;
                 this.loadworkflowData();
             },
-            openStepValue(){
+            openStepValue(index){
                 this.isEditStep = !this.isEditStep;
+                this.isEditStepNowIndex = index;
             }
         },
         created() {
