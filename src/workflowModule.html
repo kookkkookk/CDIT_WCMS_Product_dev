@@ -74,71 +74,101 @@
                     <hr>
                     <div class="ModuleRightBtnArea">
                         <b-button variant="success" class="saveBtn">Save<img src="src/images/icon-08.png" alt="Save" title="Save"></b-button>
-                        <b-button variant="success" class="saveBtn">Cancel<img src="src/images/icon-09.png" alt="Save As" title="Save As"></b-button>
+                        <b-button variant="danger" class="saveBtn">Cancel<img src="src/images/icon-10.png" alt="Save As" title="Save As"></b-button>
                     </div>
                     <div class="br3"></div>
                     <div class="stepGroupMain">
                         
                         <div class="stepGroup" :class="{isOpeingFile:isEditStep}">
                             
+                            <transition name="slide" v-for="(item,index) in workflowData" :key="index">
                             <div class="row no-gutters justify-content-md-center workflowStepArea"
-                                v-for="(item, index) in workflowData"
-                                :key="index"
+                                
                             >
                                 <div class="col-3"
                                     :class="{'col-6':isEditStep}"
                                 >
                                     <div class="workflowBlock"
-                                        :class="[item.priority]"
+                                        :class="[item.priority,{'notIsEditStep':index !== isEditStepNowIndex && isEditStep === true}]"
                                     >
                                         <div class="description"
                                             :style="{'background-color':[item.backgroundColor],'color':[item.fontColor]}"
                                             @click="openStepValue(index)"
+                                            :class="{'isEditStep':index === isEditStepNowIndex && isEditStep === true}"
                                         >
                                             {{item.stepName}}
                                         </div>
-                                        <span v-if="(index+1) !== workflowData.length" class="arrow1"></span>
+                                        <span v-if="(index+1) !== workflowData.length" class="arrow1"
+                                              :class="{'isEditStep':isEditStep}"></span>
                                         <span v-if="(index+1) !== workflowData.length" class="arrow2"></span>
                                     </div>
                                 </div>
                             </div>
+                            </transition>
 
                         </div>
+
                         <div class="mainComponentModuleRightSetting"
                             :class="{isOpeingFile:isEditStep}"
                         >
                             <h1>Workflow Step Setting</h1>
                             <div class="content">
                                 <b-row class="my-1">
-                                    <b-col sm="2"><label for="input-default">Name:</label></b-col>
-                                    <b-col sm="10">
+                                    <b-col sm="3"><label for="input-default">Name:</label></b-col>
+                                    <b-col sm="9">
                                         <b-form-input id="input-default" type="text" placeholder="Enter this step name" v-model="workflowData[isEditStepNowIndex].stepName"></b-form-input>
                                     </b-col>
 
                                     <div class="br"></div>
 
-                                    <b-col sm="2"><label for="input-default">Priority authority:</label></b-col>
-                                    <b-col sm="10">
+                                    <b-col sm="3"><label for="input-default">Priority authority:</label></b-col>
+                                    <b-col sm="9">
                                         <b-form-select v-model="workflowData[isEditStepNowIndex].priority" :options="defaulePrioritySelect" class="mb-3" />
                                     </b-col>
 
                                     <div class="br"></div>
 
-                                    <b-col sm="2"><label for="input-default">Description:</label></b-col>
-                                    <b-col sm="10">
+                                    <b-col sm="3"><label for="input-default">Description:</label></b-col>
+                                    <b-col sm="9">
                                         <b-form-input id="input-default" type="text" placeholder="Enter this step description" v-model="workflowData[isEditStepNowIndex].description"></b-form-input>
                                     </b-col>
 
                                     <div class="br"></div>
                                     
-                                    <b-col sm="2"><label for="input-default">input1:</label></b-col>
-                                    <b-col sm="10">
+                                    <!-- <b-col sm="3"><label for="input-default">Input1:</label></b-col>
+                                    <b-col sm="9">
                                         <b-form-input id="input-default" type="text" placeholder="Enter this step input1" v-model="workflowData[isEditStepNowIndex].input1"></b-form-input>
                                     </b-col>
+                                    <div class="br"></div> -->
+
+                                    <b-col sm="3"><label for="input-default">Background Color:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step Background color" v-model="workflowData[isEditStepNowIndex].backgroundColor"></b-form-input>
+                                    </b-col>
                                     <div class="br"></div>
-                                    <div>
-                                        <b-button>Save</b-button>
-                                        <b-button href="#">Cancel</b-button>
+
+                                    <b-col sm="3"><label for="input-default">Font Color:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step Font color" v-model="workflowData[isEditStepNowIndex].fontColor"></b-form-input>
+                                    </b-col>
+                                    <div class="br"></div>
+
+                                    <div class="btnArea">
+                                        <div>
+                                            <b-button variant="success" size="sm">Save</b-button>
+                                            <b-button variant="danger"
+                                                      size="sm"
+                                                      @click="closeStepValue()">Cancel</b-button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="hr"></div>
+                                    <div class="btnArea">
+                                        <div>
+                                            <b-button size="sm" @click="addStep()">Next add Step</b-button>
+                                            <b-button size="sm" @click="deleteStep()">Delete this step</b-button>
+                                        </div>
+                                        
                                     </div>
                                     <div class="br"></div>
                                 </b-row>

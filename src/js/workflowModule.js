@@ -3,7 +3,10 @@ import "workflowModule.scss";
 
 import workflowData from "../data/workflowMain/workflowMain.json";
 
+
+
 (function() {
+
     let vm = new Vue({
         el: "#app",
         data: {
@@ -49,8 +52,33 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                 this.loadworkflowData();
             },
             openStepValue(index){
-                this.isEditStep = !this.isEditStep;
-                this.isEditStepNowIndex = index;
+                
+                if (!this.isEditStep){
+                    //this.isEditStep = !this.isEditStep;
+                    this.isEditStep = true;
+                    this.isEditStepNowIndex = index;
+                }
+            },
+            closeStepValue(){
+                this.isEditStep = false;
+                this.isEditStepNowIndex = 0;
+            },
+            addStep(){
+                console.log("addStep");
+                //let copyObj = this.workflowData[this.isEditStepNowIndex];
+                var copyObj = this.workflowData.slice(this.isEditStepNowIndex,1);
+                console.log(copyObj);
+                //this.workflowData.splice(this.isEditStepNowIndex, 0, copyObj);
+                this.workflowData = insert(this.workflowData, this.isEditStepNowIndex+1, copyObj);
+                this.isEditStep = false;
+                this.isEditStepNowIndex = 0;
+
+            },
+            deleteStep(){
+                console.log("deleteStep");
+                this.isEditStep = false;
+                this.workflowData.splice(this.isEditStepNowIndex,1);
+                this.isEditStepNowIndex = 0;
             }
         },
         created() {

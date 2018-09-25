@@ -149,8 +149,15 @@
                             width: 100%;
                             height: 160px;
                             text-align: center;
+                            &.notIsEditStep{
+                                opacity: 0.7;
+                                pointer-events: none;
+                            }
 
-                            
+                            >div.isEditStep{
+                                pointer-events: none;
+                                transform: scale(1.2);
+                            }
                             >div.description{
                                 height: 100px;
                                 margin: 0;
@@ -162,6 +169,7 @@
                                 justify-content:center;
                                 box-shadow: 2px 2px 6px rgb(155, 155, 155);
                                 cursor: pointer;
+                                transition: all 0.5s;
                             }
                             >span.arrow1{
                                 display: block;
@@ -170,6 +178,10 @@
                                 background-color: #ef3b24;;
                                 margin: 0 auto;
                                 margin-top: 10px;
+                                transition: all 0.5s;
+                                &.isEditStep{
+                                    margin-top: 15px;
+                                }
                             }
                             >span.arrow2{
                                 width: 30px;
@@ -211,8 +223,10 @@
                 position: absolute;
                 right: 0;
                 top: 0;
+                box-shadow: 3px 3px 9px #ccc;
                 >h1{
                     color: #132f3e;
+                    font-weight: bold;
                     margin-top: 25px;
                     margin-left: 25px;
                     margin-bottom: 25px;
@@ -220,6 +234,16 @@
                 .content{
                     width: 90%;
                     margin: 0 auto;
+
+                    .btnArea{
+                        width: 93%;
+                        margin: 0 auto;
+                        margin-top: 20px;
+                        overflow: hidden;
+                        >div{
+                            float: right;
+                        }
+                    }
                 }
             }
             .mainComponentModuleRightSetting.isOpeingFile{
@@ -228,4 +252,27 @@
             }
         }
     }
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: transform .4s;
+}
+
+.slide-enter {
+    transform: translateX(100%);
+}
+
+.slide-leave-to {
+    transform: translateX(-100%);
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .4s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
