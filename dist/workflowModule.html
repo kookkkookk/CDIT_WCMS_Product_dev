@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>CDIT WCMS Product : workflow module development v1.0.0</title>
+
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./css/workflowModule.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+</head>
+
+<body>
+
+    <header class="mainHeader">
+        <div class="identification">
+            <div class="logo"></div>
+            <h1>CHINA DRAGON<small><br>IT LIMITED</small></h1>
+        </div>
+        <div class="menuArea">
+            <ul>
+                <li><a href="javascript:;">Content</a><span></span></li>
+                <li><a href="javascript:;">Site Map</a><span></span></li>
+            </ul>
+        </div>
+        <div class="usersArea">
+            <ul>
+                <li>
+                    <a href="javascipt:;">
+                        <img src="images/icon-00.png" alt="" class="img-fluid">
+                    </a>
+                    <span class="userID">tsadmin</span>
+                    <!-- <span class="arrow"></span> -->
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <div id="app" v-cloak>
+        <div class="container-fluid v-mainContent">
+            <div class="row no-gutters mainComponentModuleGroup">
+                <div class="col-2 mainComponentModuleLeft">
+                    <div class="fnsArea"></div>
+                    <div class="componentsArea">
+                        <h4>{{thisWorkflowName}}</h4>
+                        <hr>
+                        <ul>
+                            <!-- <li><a href="javascript:;">WORKFLOW 1</a></li>
+                            <li class="active"><a href="javascript:;">WORKFLOW 2</a></li> -->
+                            <li v-for="(item,index) in workflowMain"
+                                :key="index"
+                                :class="{active:item.active}"
+                            >
+                                <a href="javascript:;"
+                                   @click="selectWorkflow(item)"
+                                >
+                                   {{item.name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-10 mainComponentModuleRight">
+                    <h1>{{editingWorkflowPath.split("workflowData/")[1]}}</h1>
+                    <hr>
+                    <div class="ModuleRightBtnArea">
+                        <b-button variant="success" class="saveBtn">Save<img src="images/icon-08.png" alt="Save" title="Save"></b-button>
+                        <b-button variant="danger" class="saveBtn">Cancel<img src="images/icon-10.png" alt="Save As" title="Save As"></b-button>
+                    </div>
+                    <div class="br3"></div>
+                    <div class="stepGroupMain">
+                          
+                        <transition-group class="stepGroup"
+                                          :class="{isOpeingFile:isEditStep}"
+                                          tag="div"
+                                          @before-enter="beforeEnter"
+                                          @enter="enter"
+                                          :css="false"
+                                          appear
+                        >
+                            <div class="row no-gutters justify-content-md-center workflowStepArea"
+                                    v-for="(item,index) in workflowData"
+                                    :key="index"
+                                    :data-index="index"
+                            >
+                                <div class="col-3"
+                                    :class="{'col-6':isEditStep}"
+                                    :key="index"
+                                >
+                                    <div class="workflowBlock"
+                                        :class="[item.priority,{'notIsEditStep':index !== isEditStepNowIndex && isEditStep === true}]"
+                                    >
+                                        <div class="description"
+                                            :style="{'background-color':[item.backgroundColor],'color':[item.fontColor]}"
+                                            @click="openStepValue(index)"
+                                            :class="{'isEditStep':index === isEditStepNowIndex && isEditStep === true}"
+                                        >
+                                            {{item.stepName}}
+                                        </div>
+                                        <span v-if="(index+1) !== workflowData.length" class="arrow1"
+                                            :class="{'isEditStep':isEditStep}"></span>
+                                        <span v-if="(index+1) !== workflowData.length" class="arrow2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </transition-group>
+
+                        <div class="mainComponentModuleRightSetting"
+                            :class="{isOpeingFile:isEditStep}"
+                        >
+                            <h1>Workflow Step Setting</h1>
+                            <div class="content">
+                                <b-row class="my-1">
+                                    <b-col sm="3"><label for="input-default">Name:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step name" v-model="workflowData[isEditStepNowIndex].stepName"></b-form-input>
+                                    </b-col>
+
+                                    <div class="br"></div>
+
+                                    <b-col sm="3"><label for="input-default">Priority authority:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-select v-model="workflowData[isEditStepNowIndex].priority" :options="defaulePrioritySelect" class="mb-3" />
+                                    </b-col>
+
+                                    <div class="br"></div>
+
+                                    <b-col sm="3"><label for="input-default">Description:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step description" v-model="workflowData[isEditStepNowIndex].description"></b-form-input>
+                                    </b-col>
+
+                                    <div class="br"></div>
+                                    
+                                    <!-- <b-col sm="3"><label for="input-default">Input1:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step input1" v-model="workflowData[isEditStepNowIndex].input1"></b-form-input>
+                                    </b-col>
+                                    <div class="br"></div> -->
+
+                                    <b-col sm="3"><label for="input-default">Background Color:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step Background color" v-model="workflowData[isEditStepNowIndex].backgroundColor"></b-form-input>
+                                    </b-col>
+                                    <div class="br"></div>
+
+                                    <b-col sm="3"><label for="input-default">Font Color:</label></b-col>
+                                    <b-col sm="9">
+                                        <b-form-input id="input-default" type="text" placeholder="Enter this step Font color" v-model="workflowData[isEditStepNowIndex].fontColor"></b-form-input>
+                                    </b-col>
+                                    <div class="br"></div>
+
+                                    <div class="btnArea">
+                                        <div>
+                                            <b-button variant="success" size="sm">Save</b-button>
+                                            <b-button variant="danger"
+                                                      size="sm"
+                                                      @click="closeStepValue">Cancel</b-button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="hr"></div>
+                                    <div class="btnArea">
+                                        <div>
+                                            <b-button size="sm" @click="addStep">Next add Step</b-button>
+                                            <b-button size="sm" @click="deleteStep">Delete this step</b-button>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="br"></div>
+                                </b-row>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="br"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="topBtn"></div>
+    <footer class="mainFooter">
+        <div class="copyright">Copyright © 2018 China Dragon HK Tavern. Powered by Ben Wu.</div>
+        <div class="version">Workflow Module. version 1.0.0</div>
+    </footer>
+
+    <script src="./js/workflowModule.js"></script>
+</body>
+
+</html>

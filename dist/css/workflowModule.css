@@ -1,0 +1,406 @@
+@charset "UTF-8";
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body, html {
+  font-family: "Microsoft JhengHei", "PMingLiU", "Arial Unicode MS", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none; }
+
+[v-cloak] {
+  display: none; }
+
+header.mainHeader {
+  width: 100%;
+  height: 100px;
+  overflow: hidden; }
+  header.mainHeader .identification {
+    height: 80px;
+    padding-top: 10px;
+    margin-left: 20px;
+    box-sizing: content-box;
+    overflow: hidden;
+    float: left; }
+    header.mainHeader .identification .logo {
+      width: 80px;
+      height: 80px;
+      background-image: url("../images/logo_alpha.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      float: left; }
+    header.mainHeader .identification > h1 {
+      font-weight: bold;
+      color: #132f3e;
+      font-size: 1.5rem;
+      margin-top: 14px;
+      margin-left: 15px;
+      float: left; }
+  header.mainHeader .menuArea {
+    height: 80px;
+    padding-top: 10px;
+    box-sizing: content-box;
+    overflow: hidden;
+    float: left; }
+    header.mainHeader .menuArea ul {
+      overflow: hidden;
+      list-style-type: none;
+      margin-left: 80px; }
+      header.mainHeader .menuArea ul li {
+        float: left;
+        margin-right: 17px; }
+        header.mainHeader .menuArea ul li:hover {
+          margin-right: 17px; }
+          header.mainHeader .menuArea ul li:hover span {
+            opacity: 1; }
+        header.mainHeader .menuArea ul li a {
+          font-size: 20px;
+          font-weight: bold;
+          color: #132f3e;
+          line-height: 80px;
+          float: left; }
+        header.mainHeader .menuArea ul li span {
+          width: 12px;
+          height: 12px;
+          background-color: #ef3b24;
+          display: block;
+          float: left;
+          margin-top: 36px;
+          margin-left: 10px;
+          transform: rotate(45deg);
+          transition: all 0.3s;
+          opacity: 0; }
+          header.mainHeader .menuArea ul li span::before {
+            content: "";
+            width: 15px;
+            height: 22px;
+            background-color: white;
+            display: block;
+            transform: rotate(-45deg);
+            margin-left: -6px; }
+  header.mainHeader .usersArea {
+    height: 90px;
+    float: right; }
+    header.mainHeader .usersArea ul {
+      margin-top: 22px;
+      margin-right: 20px; }
+      header.mainHeader .usersArea ul li {
+        cursor: pointer;
+        padding: 0 30px 0 5px;
+        border-radius: 25px;
+        transition: all 0.3s;
+        overflow: hidden;
+        position: relative; }
+        header.mainHeader .usersArea ul li a {
+          display: block;
+          padding: 10px;
+          width: 50px;
+          height: 50px;
+          float: left; }
+        header.mainHeader .usersArea ul li span.userID {
+          line-height: 50px;
+          float: left; }
+        header.mainHeader .usersArea ul li:hover {
+          background-color: #b6b7b8; }
+        header.mainHeader .usersArea ul li span.arrow {
+          width: 12px;
+          height: 12px;
+          background-color: #ef3b24;
+          display: block;
+          position: absolute;
+          right: 10px;
+          top: 19px;
+          transform: rotate(45deg);
+          opacity: 0;
+          transition: all 0.3s; }
+          header.mainHeader .usersArea ul li span.arrow::before {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #b6b7b8;
+            display: block;
+            margin-top: -10px;
+            margin-left: -10px;
+            transform: rotate(-45deg); }
+        header.mainHeader .usersArea ul li:hover .arrow {
+          opacity: 1; }
+
+.topBtn {
+  width: 80px;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  right: 60px;
+  z-index: 4;
+  background-color: #ef3b24;
+  border: 1px solid #fff;
+  border-bottom: transparent; }
+  .topBtn::before {
+    content: "\2191";
+    color: white;
+    font-size: 35px;
+    text-align: center;
+    line-height: 80px;
+    display: block;
+    cursor: pointer; }
+
+footer.mainFooter {
+  background-color: #071821;
+  width: 100%;
+  height: 100px;
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  footer.mainFooter .copyright {
+    font-size: 14px;
+    color: #fff;
+    margin-left: 60px; }
+  footer.mainFooter .version {
+    font-size: 14px;
+    color: #fff;
+    margin-right: 40px; }
+
+.container-fluid.v-mainContent {
+  padding-left: 0;
+  padding-right: 0; }
+
+.br {
+  width: 100%;
+  height: 15px; }
+
+.br2 {
+  width: 100%;
+  height: 40px; }
+
+.br3 {
+  width: 100%;
+  height: 90px; }
+
+.hr {
+  width: 100%;
+  height: 1px;
+  background-color: #c3c3c3;
+  margin: 20px 20px 0 20px; }
+
+.lockScreen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKwAAACrBAMAAAAJGmpTAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAHlBMVEVMaXH5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+flqgUPzAAAACXRSTlMAfsJAnClcEODYxpGVAAADCUlEQVRo3u2bTW/TQBCGkzSO4WYoCHyrIBx8cwkS9BYqQeubQQiRW0BCorcAEoJbDlUl34jrpN5/S4sayV/r+VpLqOx7zebJ7uzszNiz6fWsrG6unMmdS01ik8zv9wJ1rfTlc0PQH8eqpNPPJlZ/V9U0Ftvia6AalN+XUZ8pjR5LqJ+UVmd86helOuC+UKoD7lsF6AmH2legHjD8NYCxeUjG+gqhFZX6TaFENK+jkKKZ4QSL3Rj2gq2mBGyEx2Z46lARdNTFZC/zxUIw2Xx8lcsOE4F165NNd7ef7Udc69bcIH9V/PhNwJtu1WezSuZyIo7vVg/YqrYl7kPGUfsJUesLWiOwZdNlje7jluNbSt2wNEZFYw/EznDjy79+TrNBy/APJRdcUGzQdi7dgGKFGdrPhxRfCPCnMsL7wg7hUI6KY+etQweUEFKc7hIdD6aUANoeFxJSeC5sRI411wUtfMyRpg1pwW6J81pUHeTjzm9hb/cw2AHKc93ComJqyI8xO4bMez4mLAxIfnClX5g9m1ECc3V9a8ySsKVKgjBbQC+zfdgVXLJpS8aNYUOhq9YhfHyHjNrdgacywMUj3X7oPOw2p8T2wf04IOT9Bl8/B3/4Nx57C3TKiBa+qvucgtb38Ng+iE04z4aFEkAzgh4Ryt8Czy7liTMA1rhDKYM7x0ZoLOntgw/4z6gbbP+fwp50gz2wWIu1WIu1WC42mxCEzw5MWazFWqzFWqzFGsKe7u4fm8f+vefw1DR2U83eRrDblpEbGMVeaLppQmyo6/2JsFnjW1Mxdt34rlKM3dM0noRYT9MgEmJDfb9Wgl00vqASY3vdYOPmlocUO9f0/4TYKdVfcNhlc+9Lit00PdjIsbmmay2NYFPMIDp209RaNZB0PPwYCvY66wSmM28InFyLtVgR1gOCLRO7BLI5E7uCIgKzbD4CR/CK/NcfE/ukY7H/C3bUDdaRYkOoK80TfFGFowy+HsLRGr5SwtEcboIatIFwui13Gt7xqa3X6N8fPmJpbOJPNlZWN1N/AO/UwimbWhyLAAAAAElFTkSuQmCC);
+  background-size: 15%;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  z-index: 3; }
+
+.v-mainContent {
+  min-width: 1280px;
+  height: 100%; }
+
+.v-mainContent .mainComponentModuleGroup {
+  min-height: 900px; }
+
+.v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft {
+  border-top: 8px solid #ef3b24;
+  background-color: #f2f7fa;
+  overflow: hidden; }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .fnsArea {
+    width: 20px;
+    height: 100%;
+    background-color: #071821;
+    float: left; }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea {
+    float: left;
+    width: calc(100% - 20px); }
+    .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea > h4 {
+      margin: 10px;
+      padding-left: 10px;
+      color: #a1a1a1;
+      font-size: 20px;
+      line-height: 28px;
+      height: 28px; }
+    .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul {
+      list-style-type: none; }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li {
+        width: 100%;
+        height: 60px;
+        transition: all 0.3s; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li:hover {
+          background-color: #0c1d25;
+          opacity: 0.8; }
+          .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li:hover a {
+            color: white; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.active {
+          background-color: #0c1d25;
+          pointer-events: none; }
+          .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.active a {
+            color: white; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.lock {
+          background-color: #a1a1a1;
+          position: relative; }
+          .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.lock::before {
+            content: "";
+            width: 40px;
+            height: 40px;
+            display: block;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKwAAACrBAMAAAAJGmpTAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAHlBMVEVMaXH5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+flqgUPzAAAACXRSTlMAfsJAnClcEODYxpGVAAADCUlEQVRo3u2bTW/TQBCGkzSO4WYoCHyrIBx8cwkS9BYqQeubQQiRW0BCorcAEoJbDlUl34jrpN5/S4sayV/r+VpLqOx7zebJ7uzszNiz6fWsrG6unMmdS01ik8zv9wJ1rfTlc0PQH8eqpNPPJlZ/V9U0Ftvia6AalN+XUZ8pjR5LqJ+UVmd86helOuC+UKoD7lsF6AmH2legHjD8NYCxeUjG+gqhFZX6TaFENK+jkKKZ4QSL3Rj2gq2mBGyEx2Z46lARdNTFZC/zxUIw2Xx8lcsOE4F165NNd7ef7Udc69bcIH9V/PhNwJtu1WezSuZyIo7vVg/YqrYl7kPGUfsJUesLWiOwZdNlje7jluNbSt2wNEZFYw/EznDjy79+TrNBy/APJRdcUGzQdi7dgGKFGdrPhxRfCPCnMsL7wg7hUI6KY+etQweUEFKc7hIdD6aUANoeFxJSeC5sRI411wUtfMyRpg1pwW6J81pUHeTjzm9hb/cw2AHKc93ComJqyI8xO4bMez4mLAxIfnClX5g9m1ECc3V9a8ySsKVKgjBbQC+zfdgVXLJpS8aNYUOhq9YhfHyHjNrdgacywMUj3X7oPOw2p8T2wf04IOT9Bl8/B3/4Nx57C3TKiBa+qvucgtb38Ng+iE04z4aFEkAzgh4Ryt8Czy7liTMA1rhDKYM7x0ZoLOntgw/4z6gbbP+fwp50gz2wWIu1WIu1WC42mxCEzw5MWazFWqzFWqzFGsKe7u4fm8f+vefw1DR2U83eRrDblpEbGMVeaLppQmyo6/2JsFnjW1Mxdt34rlKM3dM0noRYT9MgEmJDfb9Wgl00vqASY3vdYOPmlocUO9f0/4TYKdVfcNhlc+9Lit00PdjIsbmmay2NYFPMIDp209RaNZB0PPwYCvY66wSmM28InFyLtVgR1gOCLRO7BLI5E7uCIgKzbD4CR/CK/NcfE/ukY7H/C3bUDdaRYkOoK80TfFGFowy+HsLRGr5SwtEcboIatIFwui13Gt7xqa3X6N8fPmJpbOJPNlZWN1N/AO/UwimbWhyLAAAAAElFTkSuQmCC);
+            background-size: contain;
+            position: absolute;
+            top: 10px;
+            right: 30px; }
+          .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.lock a {
+            color: black; }
+          .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.lock:hover {
+            background-color: #0c1d25;
+            opacity: 0.8; }
+            .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.lock:hover a {
+              color: white; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.lock.active {
+          background-color: #0c1d25;
+          pointer-events: none; }
+          .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li.lock.active a {
+            color: white; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleLeft .componentsArea ul li a {
+          display: block;
+          color: #4d6f80;
+          font-size: 18px;
+          line-height: 60px;
+          padding-left: 20px;
+          text-decoration: none; }
+
+.v-mainContent .mainComponentModuleGroup .mainComponentModuleRight {
+  padding: 0 15px;
+  overflow: hidden; }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight > h1 {
+    font-size: 28px;
+    margin: 13px 0 20px 0;
+    line-height: 30px;
+    color: #a1a1a1;
+    font-weight: normal; }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .ModuleRightBtnArea {
+    margin-bottom: 16px; }
+    .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .ModuleRightBtnArea .saveBtn {
+      padding: 3px 6px;
+      background-color: #e9ecef;
+      border: 1px solid #ced4da;
+      color: #495057;
+      margin-left: 5px; }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .ModuleRightBtnArea .saveBtn:hover {
+        background-color: #b6b7b8; }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .ModuleRightBtnArea .saveBtn img {
+        width: 25px;
+        margin-left: 5px; }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain {
+    position: relative; }
+    .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup {
+      width: 100%;
+      transition: all 1s; }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea > div.col-3, .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea div.col-4, .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea div.col-5, .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea div.col-6 {
+        height: 160px;
+        transition: all 1s;
+        /*&:nth-child(odd){
+                                background-color: #4d6f80;
+                            }
+                            background-color: #ef3b24;*/ }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .workflowBlock {
+        width: 100%;
+        height: 160px;
+        text-align: center; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .workflowBlock.notIsEditStep {
+          opacity: 0.7;
+          pointer-events: none; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .workflowBlock > div.isEditStep {
+          pointer-events: none;
+          transform: scale(1.2); }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .workflowBlock > div.description {
+          height: 100px;
+          margin: 0;
+          background-color: pink;
+          font-size: 18px;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 2px 2px 6px #9b9b9b;
+          cursor: pointer;
+          transition: all 0.5s; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .workflowBlock > span.arrow1 {
+          display: block;
+          width: 10px;
+          height: 10px;
+          background-color: #ef3b24;
+          margin: 0 auto;
+          margin-top: 10px;
+          transition: all 0.5s; }
+          .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .workflowBlock > span.arrow1.isEditStep {
+            margin-top: 15px; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .workflowBlock > span.arrow2 {
+          width: 30px;
+          height: 30px;
+          border-right: 15px solid transparent;
+          border-left: 15px solid transparent;
+          border-top: 30px solid #ef3b24;
+          display: inline-block; }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .round .description {
+        border-radius: 190px/50px; }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroupMain .stepGroup .workflowStepArea .diamond .description {
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .stepGroup.isOpeingFile {
+    width: 50%; }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .mainComponentModuleRightSetting {
+    width: 50%;
+    min-height: 300px;
+    background-color: #f2f7fa;
+    border-left: 6px solid #ef3b24;
+    float: left;
+    transition: all 1s;
+    transform: translateX(100%);
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-shadow: 3px 3px 9px #ccc; }
+    .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .mainComponentModuleRightSetting > h1 {
+      color: #132f3e;
+      font-weight: bold;
+      margin-top: 25px;
+      margin-left: 25px;
+      margin-bottom: 25px; }
+    .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .mainComponentModuleRightSetting .content {
+      width: 90%;
+      margin: 0 auto; }
+      .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .mainComponentModuleRightSetting .content .btnArea {
+        width: 93%;
+        margin: 0 auto;
+        margin-top: 20px;
+        overflow: hidden; }
+        .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .mainComponentModuleRightSetting .content .btnArea > div {
+          float: right; }
+  .v-mainContent .mainComponentModuleGroup .mainComponentModuleRight .mainComponentModuleRightSetting.isOpeingFile {
+    transform: translateX(0%);
+    opacity: 1; }
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform .4s; }
+
+.slide-enter {
+  transform: translateX(100%); }
+
+.slide-leave-to {
+  transform: translateX(-100%); }
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .4s; }
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0; }
