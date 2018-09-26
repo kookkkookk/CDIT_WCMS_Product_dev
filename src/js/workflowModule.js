@@ -29,7 +29,7 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                 { value: 'diamond', text: 'Urgent' }
             ],
             "isEditStep": false,
-            isEditStepNowIndex: 0
+            "isEditStepNowIndex": 0
 
         },
         methods: {
@@ -65,11 +65,11 @@ import workflowData from "../data/workflowMain/workflowMain.json";
             },
             addStep(){
                 console.log("addStep");
-                //let copyObj = this.workflowData[this.isEditStepNowIndex];
-                var copyObj = this.workflowData.slice(this.isEditStepNowIndex,1);
-                console.log(copyObj);
-                //this.workflowData.splice(this.isEditStepNowIndex, 0, copyObj);
-                this.workflowData = insert(this.workflowData, this.isEditStepNowIndex+1, copyObj);
+                let copyObj = this.workflowData[this.isEditStepNowIndex];
+                this.workflowData.splice(this.isEditStepNowIndex, 0, copyObj);
+                //var copyObj = this.workflowData.slice(this.isEditStepNowIndex,1);
+                //console.log(copyObj);
+                //this.workflowData = insert(this.workflowData, this.isEditStepNowIndex+1, copyObj);
                 this.isEditStep = false;
                 this.isEditStepNowIndex = 0;
 
@@ -78,8 +78,32 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                 console.log("deleteStep");
                 this.isEditStep = false;
                 this.workflowData.splice(this.isEditStepNowIndex,1);
-                this.isEditStepNowIndex = 0;
-            }
+                setTimeout(()=>{
+                    this.isEditStepNowIndex = 0;
+                },1000)
+                
+            },
+
+            beforeEnter(el) {
+                el.style.opacity = 0
+            },
+            enter(el, done) {
+                var delay = el.dataset.index * 150
+                setTimeout(function () {
+                    Velocity(
+                        el,
+                        { opacity: 1 },
+                        { complete: done }
+                    )
+                    this.showStepDomFrist = true;
+                }, delay);
+            },
+            // leave: function (el, done) {
+            //     console.log("el: ",el)
+            //     Velocity(
+            //         el,{ opacity: 0},{ complete: done }
+            //     )
+            // }
         },
         created() {
             this.workflowMain.some((e)=>{
