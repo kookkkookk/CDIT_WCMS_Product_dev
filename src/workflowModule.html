@@ -86,6 +86,7 @@
                                           tag="div"
                                           @before-enter="beforeEnter"
                                           @enter="enter"
+                                          @after-enter="afterEnter"
                                           :css="false"
                                           appear
                         >
@@ -175,6 +176,8 @@
                                         <div>
                                             <b-button size="sm" @click="addStep">Next add Step</b-button>
                                             <b-button size="sm" @click="deleteStep">Delete this step</b-button>
+                                            <b-button size="sm">Move up</b-button>
+                                            <b-button size="sm">Move down</b-button>
                                         </div>
                                         
                                     </div>

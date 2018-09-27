@@ -29,7 +29,8 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                 { value: 'diamond', text: 'Urgent' }
             ],
             "isEditStep": false,
-            "isEditStepNowIndex": 0
+            "isEditStepNowIndex": 0,
+            "firstLoad": true
 
         },
         methods: {
@@ -70,34 +71,57 @@ import workflowData from "../data/workflowMain/workflowMain.json";
                 //var copyObj = this.workflowData.slice(this.isEditStepNowIndex,1);
                 //console.log(copyObj);
                 //this.workflowData = insert(this.workflowData, this.isEditStepNowIndex+1, copyObj);
-                this.isEditStep = false;
-                this.isEditStepNowIndex = 0;
+                
+                /*setTimeout(() => {
+                    this.isEditStep = false;
+                    this.isEditStepNowIndex = 0;
+                }, 1000)*/
 
             },
             deleteStep(){
                 console.log("deleteStep");
-                this.isEditStep = false;
-                this.workflowData.splice(this.isEditStepNowIndex,1);
-                setTimeout(()=>{
-                    this.isEditStepNowIndex = 0;
-                },1000)
+                if (this.workflowData.length>1){
+                    this.isEditStep = false;
+                    this.workflowData.splice(this.isEditStepNowIndex, 1);
+                    setTimeout(() => {
+                        this.isEditStepNowIndex = 0;
+                        this.isEditStep = false;
+                    }, 1000)
+                }else{
+                    alert("Workflow step 最小數量為1.")
+                }
+                
                 
             },
 
             beforeEnter(el) {
-                el.style.opacity = 0
+                let opacityN;
+                if (this.firstLoad) {
+                    opacityN = 0;
+                } else {
+                    opacityN = 1;
+                }
+                el.style.opacity = opacityN;
             },
             enter(el, done) {
-                var delay = el.dataset.index * 150
-                setTimeout(function () {
+                let timer;
+                if (this.firstLoad){
+                    timer = 150;
+                }else{
+                    timer = 0;
+                }
+                let delay = el.dataset.index * timer;
+                setTimeout(()=> {
                     Velocity(
                         el,
                         { opacity: 1 },
                         { complete: done }
                     )
-                    this.showStepDomFrist = true;
                 }, delay);
-            },
+            }, 
+            afterEnter(el){
+                this.firstLoad = false;
+            }
             // leave: function (el, done) {
             //     console.log("el: ",el)
             //     Velocity(
