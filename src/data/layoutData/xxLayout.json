@@ -48,13 +48,6 @@
                 "lockStatus": false,
                 "moveStatus": false,
                 "active": false
-            },
-            {
-                "name": "component5",
-                "path": "../src/data/componentData/xxLayout/component5.json",
-                "lockStatus": true,
-                "moveStatus": false,
-                "active": false
             }
         ]
     }

@@ -1,0 +1,65 @@
+[
+    {
+        "name": "component3",
+        "file": "component3.json",
+        "english": true,
+        "tchinese": true,
+        "schinese": true,
+        "active": "tchinese"
+    },
+
+    {
+        "level1-1": {
+            "item1": {
+                "type": "text",
+                "name": "Title",
+                "description": "Title - test",
+                "subDesc": null,
+                "isRequired": false
+            },
+            "item2": {
+                "type": "text",
+                "name": "Description",
+                "description": "Description - test",
+                "subDesc": null,
+                "isRequired": false
+            }
+        }
+    },
+    {
+        "level1-1": {
+            "item1": {
+                "type": "text",
+                "name": "標題",
+                "description": "標題 - 測試",
+                "subDesc": null,
+                "isRequired": false
+            },
+            "item2": {
+                "type": "text",
+                "name": "描述",
+                "description": "描述 - 測試",
+                "subDesc": null,
+                "isRequired": false
+            }
+        }
+    },
+    {
+        "level1-1": {
+            "item1": {
+                "type": "text",
+                "name": "标题",
+                "description": "标题 - 测试",
+                "subDesc": null,
+                "isRequired": false
+            },
+            "item2": {
+                "type": "text",
+                "name": "描述",
+                "description": "描述 - 测试",
+                "subDesc": null,
+                "isRequired": false
+            }
+        }
+    }
+]

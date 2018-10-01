@@ -1,7 +1,7 @@
 [
     {
-        "name": "pagesetting",
-        "file": "pagesetting.json",
+        "name": "webtrend",
+        "file": "webtrend.json",
         "english": true,
         "tchinese": false,
         "schinese": false,
@@ -11,14 +11,14 @@
         "level1-1": {
             "item1": {
                 "type": "text",
-                "name": "Pagesetting Desktop",
-                "description": "3410",
+                "name": "Webtrend Desktop",
+                "description": "",
                 "subDesc": null
             },
             "item2": {
                 "type": "text",
-                "name": "Pagesetting Mobile",
-                "description": "3410",
+                "name": "Webtrend Mobile",
+                "description": "",
                 "subDesc": null
             }
         }

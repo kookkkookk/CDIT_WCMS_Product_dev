@@ -1,0 +1,24 @@
+[
+    {
+        "name": "component4",
+        "file": "component4.json",
+        "english": true,
+        "tchinese": false,
+        "schinese": false,
+        "active": "tchinese"
+    },
+
+    {
+        "level1-1": {
+            "item1": {
+                "type": "text",
+                "name": "Image",
+                "description": "../images/aaa.jpg",
+                "subDesc": null,
+                "isRequired": false
+            }
+        }
+    },
+    {},
+    {}
+]

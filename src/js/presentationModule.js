@@ -42,7 +42,7 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     <b-card>
 
                         <!-- froms Text -->
-                        <b-form-group v-for="(value2,key2,index2) in componentData[key]"
+                        <!-- <b-form-group v-for="(value2,key2,index2) in componentData[key]"
                                       :key="index2"
                                       v-if="value2.type == 'text'"
                                       :id="'exampleInputGroup'+index2"
@@ -55,37 +55,28 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                                           v-model="value2.description"
                                           :required="value2.isRequired"
                             ></b-form-input>
-                        </b-form-group>
+                        </b-form-group> -->
 
                         <!-- 使用預定text格式 -->
                         <component-type-text :componentData="componentData[key]" :islock="lock"></component-type-text>
-
-
-
                     </b-card>
                 </b-collapse>
             </div>
         </div>
-        `,
-        data() {
-            return  {
-                isEdit: false
-            }
-        },
-        props: ['componentData','lock'],
-        methods: {
-            /*embedForms(){
+        `, data() {
+        return { isEdit: false };
+      },
+      props: ["componentData", "lock"],
+      methods: {
+        /*embedForms(){
                 console.log(Object.keys(this.componentData).length);
                 console.log(this.componentData["level1-1"]["item1"].name);
             }*/
         }
-    }
+    };
     let tcComponentPartCombination = {
         template: `
-        <transition-group tag="div"
-                          enter-active-class="animated tada"
-                          leave-active-class="animated tada"
-        >
+        <div>
             <div v-for="(value,key,index) in componentData"
                  :key="index"
                  class="fromsTab"
@@ -95,16 +86,60 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     <b-button size="sm" variant="outline-danger" class="collapseCditBtnStyle">✕</b-button>
                     <b-button size="sm" variant="outline-success" class="collapseCditBtnStyle">✚</b-button>
                 </b-btn>
-                <b-collapse :visible="index == 0" :id="'collapse'+index">
+                <b-collapse :visible="index == 0 || lock"
+                            :id="'collapse'+index"
+                >
                     <b-card>
-                        
+                        <!-- 使用預定text格式 -->
+                        <component-type-text :componentData="componentData[key]" :islock="lock"></component-type-text>
+
                     </b-card>
                 </b-collapse>
             </div>
-        </transition-group>
+        </div>
         `,
-        props: ['componentData']
-    }
+        data() {
+            return {
+                isEdit: false
+            }
+        },
+        props: ['componentData', 'lock'],
+        methods: {
+        }
+    };
+    let scComponentPartCombination = {
+        template: `
+        <div>
+            <div v-for="(value,key,index) in componentData"
+                 :key="index"
+                 class="fromsTab"
+            >
+                <b-btn v-b-toggle="'collapse'+index" variant="init" class="m-1 p-1 collapseCditStyle">
+                    {{key}}
+                    <b-button size="sm" variant="outline-danger" class="collapseCditBtnStyle">✕</b-button>
+                    <b-button size="sm" variant="outline-success" class="collapseCditBtnStyle">✚</b-button>
+                </b-btn>
+                <b-collapse :visible="index == 0 || lock"
+                            :id="'collapse'+index"
+                >
+                    <b-card>
+                        <!-- 使用預定text格式 -->
+                        <component-type-text :componentData="componentData[key]" :islock="lock"></component-type-text>
+
+                    </b-card>
+                </b-collapse>
+            </div>
+        </div>
+        `,
+        data() {
+            return {
+                isEdit: false
+            }
+        },
+        props: ['componentData', 'lock'],
+        methods: {
+        }
+    };
 
     let componentModule = {
         template: `
@@ -177,7 +212,8 @@ import layoutsData from "../data/layoutData/xxLayout.json";
         },
         components: {
             enComponentPartCombination,
-            tcComponentPartCombination
+            tcComponentPartCombination,
+            scComponentPartCombination
         }
     };
 
@@ -196,7 +232,9 @@ import layoutsData from "../data/layoutData/xxLayout.json";
                     "schinese": false,
                     "active": ""
                 },
-                {}, {}, {}
+                {},
+                {},
+                {}
             ]
         },
         components: {

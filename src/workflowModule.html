@@ -107,7 +107,7 @@
                                             @click="openStepValue(index)"
                                             :class="{'isEditStep':index === isEditStepNowIndex && isEditStep === true}"
                                         >
-                                            {{item.stepName}}
+                                            {{item.stepName}}<br/>
                                         </div>
                                         <span v-if="(index+1) !== workflowData.length" class="arrow1"
                                             :class="{'isEditStep':isEditStep}"></span>
